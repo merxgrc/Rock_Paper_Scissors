@@ -6,17 +6,17 @@ while(computerScore < 5 && humanScore < 5) {
         let random = Math.random() * 3;
         let computerChoice;
         if (random < 1) {
-            computerChoice = 'Rock';
+            computerChoice = 'rock';
         } else if (random < 2 && random > 1) {
-            computerChoice = 'Paper';
+            computerChoice = 'paper';
         } else if (random > 2) {
-            computerChoice = 'Scissors';
+            computerChoice = 'scissors';
         }
         return computerChoice;
     }
 
     function getHumanChoice() {
-        let humanChoice = prompt("Enter your choice: ");
+        let humanChoice = prompt("Enter your choice: ").toLowerCase();
         return humanChoice;
     }
 
@@ -24,22 +24,22 @@ while(computerScore < 5 && humanScore < 5) {
         console.log("Human: " + humanChoice)
         console.log("Computer: " + computerChoice)
 
-        if (humanChoice === 'Rock' && computerChoice === 'Scissors') {
+        if (humanChoice === 'rock' && computerChoice === 'scissors') {
             humanScore += 1;
             console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
-        } else if (humanChoice === 'Rock' && computerChoice === 'Paper') {
+        } else if (humanChoice === 'rock' && computerChoice === 'paper') {
             computerScore += 1;
             console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
-        } else if (humanChoice === 'Paper' && computerChoice === 'Rock') {
+        } else if (humanChoice === 'paper' && computerChoice === 'rock') {
             humanScore += 1;
             console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
-        } else if (humanChoice === 'Paper' && computerChoice === 'Scissors') {
+        } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
             computerScore += 1;
             console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
-        } else if (humanChoice === 'Scissors' && computerChoice === 'Rock') {
+        } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
             computerScore += 1;
             console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
-        } else if (humanChoice === 'Scissors' && computerChoice === 'Paper') {
+        } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
             humanScore += 1;
             console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
         } else if (humanChoice === computerChoice) {
