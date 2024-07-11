@@ -25,51 +25,50 @@ function getComputerChoice() {
 }
 
 // Get the human's choice
-function getHumanChoice() {
-    return prompt("Enter your choice: ").toLowerCase();
-}
+
 
 // Play a round and update scores
 function playRound(humanChoice, computerChoice) {
     console.log("Human: " + humanChoice)
     console.log("Computer: " + computerChoice)
 
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Human: ${humanChoice} <br> Computer: ${computerChoice} <br>`;
+
     if (humanChoice === 'rock' && computerChoice === 'scissors') {
         humanScore += 1;
-        console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
+        resultDiv.innerHTML += `Human Wins!!! | Score: Human: " ${humanScore} " Computer: " ${computerScore}`;
     } else if (humanChoice === 'rock' && computerChoice === 'paper') {
         computerScore += 1;
-        console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
+        resultDiv.innerHTML += `Computer Wins!!! | Score: Computer: " ${computerScore} " Human: " ${humanScore}`;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
         humanScore += 1;
-        console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
+        resultDiv.innerHTML += `Human Wins!!! | Score: Human: " ${humanScore} " Computer: " ${computerScore}`;
     } else if (humanChoice === 'paper' && computerChoice === 'scissors') {
         computerScore += 1;
-        console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
+        resultDiv.innerHTML += `Computer Wins!!! | Score: Computer: " ${computerScore} " Human: " ${humanScore}`;
     } else if (humanChoice === 'scissors' && computerChoice === 'rock') {
         computerScore += 1;
-        console.log("Computer Wins!!! | Score: Computer: " + computerScore + " Human: " + humanScore)
+        resultDiv.innerHTML += `Computer Wins!!! | Score: Computer: " ${computerScore} " Human: " ${humanScore}`;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
         humanScore += 1;
-        console.log("Human Wins!!! | Score: Human: " + humanScore + " Computer: " + computerScore);
+        resultDiv.innerHTML += `Human Wins!!! | Score: Human: " ${humanScore} " Computer: " ${computerScore}`;
     } else if (humanChoice === computerChoice) {
-        console.log("Tie!")
+        resultDiv.innerHTML += 'Tie!';
+    }
+
+    checkForWinner();
+
+}
+
+function checkForWinner() {
+    const gameOver = document.getElementById("game-over");
+// Display final result
+    if (humanScore === WINNING_SCORE) {
+        gameOver.innerHTML += `Human wins the game!`;
+    } else if (computerScore === WINNING_SCORE){
+        gameOver.innerHTML += `Computer wins the game!`;
     }
 }
 
-// Main game loop
-while (computerScore < WINNING_SCORE && humanScore < WINNING_SCORE) {
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
 
-    playRound(humanSelection, computerSelection);
-}
-
-// Display final result
-if (humanScore === 5) {
-    console.log("Human wins the game!");
-    alert("Human Wins!!!!!!")
-} else if (computerScore === 5){
-    console.log("Computer wins the game!");
-    alert("Computer Wins!!!!!")
-}

@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-
+    <button onclick="playRound('rock', getComputerChoice())">Rock</button>
+    <button onclick="playRound('paper', getComputerChoice())">Paper</button>
+    <button onclick="playRound('scissors', getComputerChoice())">Scissors</button>
+    <div id="result"></div>
+    <div id="game-over"></div>
 </body>
 </html>
